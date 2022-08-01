@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="">
+    <form method="POST" action="" class="">
+        <!-- CSRF TOKEN-->
+        {{form.hidden_tag()}}
+
+        <div class="">
+            {% if header %}
+            <h4>{{header}}</h4>
+            {% else %}
+            <h4>New Plan</h4>
+            {% endif %}
+            <div class="">
+                {{form.name.label(class="")}}
+
+                {% if form.name.errors %}
+                    {{form.name(class="")}}
+                    <div class="error">
+                        {% for error in form.name.errors %}
+                            <span>{{error}}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{form.name(class="")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{form.budget.label(class="")}}
+
+                {% if form.budget.errors %}
+                    {{form.budget(class="")}}
+                    <div class="error">
+                        {% for error in form.budget.errors %}
+                            <span>{{error}}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{form.budget(class="")}}
+                {% endif %}
+            </div>
+        </div>
+        <div class="">
+            <a class="" href="{{url_for('plan_view')}}">Back</a>
+            {{form.submit(class="")}}
+        </div>
+    </form>
+</div>
+{% endblock content %}

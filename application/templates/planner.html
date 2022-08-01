@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="">
+    <div class="">
+        <h4>Planner</h4>
+        <a href="{{url_for('create_plan')}}" class="">Create Plan</a>
+    </div>
+    {% for plan in plans %}
+    <div class="">
+        <div class="">
+            <a href="{{url_for('plan_expense', plan_id=plan.id)}}" class="">{{plan.name}}</a>
+            <p class="">{{plan.created.strftime('%Y-%m-%d')}}</p>
+        </div>
+        <div class="">
+            <span class="">Total Budget:  {{"£%.2f"|format(plan.budget)}}</span>
+            <div class= "">
+            <a href="{{url_for('update_plan', plan_id=plan.id)}}" class="">Update</a>
+            <a href="{{url_for('delete_plan', plan_id=plan.id)}}" class="">Delete</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %} 
+</div>
+{% endblock %}
