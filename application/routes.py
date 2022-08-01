@@ -49,3 +49,57 @@ def delete_plan(plan_id):
     flash('Your post has been deleted!', 'success')
     return redirect(url_for('plan_view'))
 
+@app.route("/expenses/<int:plan_id>")
+def plan_expense(plan_id):
+    plan =  Plan.query.get_or_404(plan_id)
+
+    total_expenses = 0
+    for expense in plan.expenses:
+        total_expenses = total_expenses + expense.expense
+        
+    return render_template('expenses.html', plan=plan, total_expenses=total_expenses)
+
+@app.route("/new-expense/<int:plan_id>", methods=['GET', 'POST'])
+def create_expense(plan_id):
+    plan = Plan.query.get_or_404(plan_id)
+
+    header = f"{plan.name}: New Expense"
+
+    form = ExpenseForm()
+    if form.validate_on_submit():
+        new_expense = Expenses(plan=plan, type=form.type.data, expense=form.expense.data)
+        db.session.add(new_expense)
+        db.session.commit()
+        flash(f"{form.type.data} expense was created successfully!", 'success')
+        return redirect(url_for('plan_expense', plan_id=plan_id))
+
+    return render_template('expenseform.html', form=form, plan_id=plan.id, header=header)
+
+@app.route("/update-expense/<int:expense_id>", methods=['GET', 'POST'])
+def update_expense(expense_id):
+    # need to query datsabase first
+    expense = Expenses.query.get_or_404(expense_id)
+    
+    form = ExpenseForm()
+    if form.validate_on_submit():
+        expense.type = form.type.data
+        expense.expense = form.expense.data
+        db.session.commit()
+        flash(f"{expense.type} expense was updated successfully!", 'success')
+        return redirect(url_for('plan_expense', plan_id=expense.plan_id))
+    elif request.method == 'GET':
+        # loading form data
+        form.type.data = expense.type
+        form.expense.data = expense.expense
+
+    header = f"Update Expense: {expense.type}"
+    plan_id = expense.plan_id
+    return render_template('expenseform.html', form=form, header=header, expense=expense, plan_id=plan_id)
+
+@app.route("/delete-expense/<int:expense_id>", methods=['GET', 'POST'])
+def delete_expense(expense_id):
+    expense = Expenses.query.get_or_404(expense_id)
+    db.session.delete(expense)
+    db.session.commit()
+    flash(f'Your {expense.type} expense has been deleted!', 'success')
+    return redirect(url_for('plan_expense', plan_id=expense.plan_id))

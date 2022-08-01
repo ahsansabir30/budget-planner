@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="" >
+  <div class="">
+    <div class="">
+        <div class="">
+          <a class="" href="{{url_for('plan_view')}}">Back</a>
+          <h4 class="">{{plan.name}}</h4>
+          <a href="{{url_for('create_expense', plan_id=plan.id)}}" class="">Create Expense</a>
+        </div>
+        {% for expense in plan.expenses %}
+        <div class="">
+          <div class="">
+              {{expense.type}}
+              <span class="">{{expense.created.strftime('%Y-%m-%d')}}</span>
+          </div>
+          <div class="">
+            <span class="">{{"£%.2f"|format(expense.expense)}}</span>
+            <div class= "">
+              <a href="{{url_for('update_expense', expense_id=expense.id)}}" class="">Update</a>
+              <a href="{{url_for('delete_expense', expense_id=expense.id)}}" class="">Delete</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="">
+      <div class="">
+        <div class="">
+          <h5 class="">Overview</h5>
+          <h6 class="">{{plan.name}}</h6>
+          <p class="">Total Budget:  {{"£%.2f"|format(plan.budget)}}</p>
+          {% if plan.budget > total_expenses %}
+          <p class="">Total Expenses: {{"£%.2f"|format(total_expenses)}}</p>
+          {% else %}
+          <p class="">Total Expenses: {{"£%.2f"|format(total_expenses)}}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+{% endblock %}
+
+
