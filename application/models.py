@@ -22,4 +22,4 @@ class Expenses(db.Model):
     plan_id = db.Column(db.Integer, db.ForeignKey('plan.id'), nullable=False)
 
     def __str__(self):
-        return f"PlanID: {self.plan_id}, Type: {self.expense_type},  Expense: {self.expense}"
+        return f"PlanID: {self.plan_id}, Type: {self.type},  Expense: {self.expense}"
