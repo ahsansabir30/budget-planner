@@ -17,7 +17,7 @@ class TestBase(TestCase):
         # creating test object in the database
         db.create_all()
         # creating a fake plan
-        new_plan = Plan(name="Plan 1", budget=1200)
+        new_plan = Plan(name='Plan 1', budget=1200)
         new_expense = Expenses(plan_id=1, type='Expense 1', expense=1200)
         db.session.add(new_plan)
         db.session.add(new_expense)
@@ -86,7 +86,7 @@ class TestPostRequest(TestBase):
     def test_add_plan(self):
         response = self.client.post(
             url_for('create_plan'),
-            data = dict(name="Plan 2", budget=1000),
+            data = dict(name='Plan 2', budget=1000),
             follow_redirects = True
         )
         
@@ -94,12 +94,12 @@ class TestPostRequest(TestBase):
         self.assertIn(b'Plan 2', response.data)
         # we also can check the database directly
         assert Plan.query.filter_by(name='Plan 2').first() is not None
-        assert str(Plan.query.filter_by(name='Plan 2').first()) == "2"
+        assert str(Plan.query.filter_by(name='Plan 2').first()) == '2'
 
     def test_update_plan(self):
         response = self.client.post(
             url_for('update_plan', plan_id=1),
-            data = dict(name="Update Plan 1", budget=1400),
+            data = dict(name='Update Plan 1', budget=1400),
             follow_redirects = True
         )
 
@@ -113,7 +113,7 @@ class TestPostRequest(TestBase):
     def test_add_expense(self):
         response = self.client.post(
             url_for('create_expense', plan_id=1),
-            data = dict(type="Expense 2", expense=1000),
+            data = dict(type='Expense 2', expense=1000),
             follow_redirects = True
         )
         
@@ -122,12 +122,12 @@ class TestPostRequest(TestBase):
         
         # checking if the add expense has been created under the given plan id
         assert Expenses.query.filter_by(plan_id=1, type='Expense 2').first() is not None
-        assert str(Expenses.query.filter_by(type='Expense 2').first()) == "PlanID: 1, Type: Expense 2,  Expense: 1000.0"
+        assert str(Expenses.query.filter_by(type='Expense 2').first()) == 'PlanID: 1, Type: Expense 2,  Expense: 1000.0'
 
     def test_update_expense(self):
         response = self.client.post(
             url_for('update_expense', expense_id=1),
-            data = dict(type="Update Expense 1", expense=1200),
+            data = dict(type='Update Expense 1', expense=1200),
             follow_redirects = True
         )
 
@@ -137,3 +137,51 @@ class TestPostRequest(TestBase):
         assert Expenses.query.filter_by(plan_id=1, type='Update Expense 1').first() is not None
         assert Expenses.query.filter_by(type='Expense 1').first() is None
         
+class TestCustomValidator(TestBase):
+    def test_add_plan_check_currency_validator(self):
+        response = self.client.post(
+            url_for('create_plan'),
+            data = dict(name='Plan 2', budget='145.628'),
+            follow_redirects = True
+        )
+        
+        self.assert200(response)
+        self.assertIn(b'Please add a currency! (For example 2.99, 12.42)', response.data)
+        assert Plan.query.filter_by(name='Plan 2').first() is None
+
+    def test_update_plan_check_currency_validator(self):
+        response = self.client.post(
+            url_for('update_plan', plan_id=1),
+            data = dict(name='Update Plan 1 Fail', budget="1400.6878"),
+            follow_redirects = True
+        )
+
+        self.assert200(response)
+        self.assertIn(b'Please add a currency! (For example 2.99, 12.42)', response.data)
+
+        assert Plan.query.filter_by(name='Plan 1').first() is not None
+        assert Plan.query.filter_by(name='Update Plan 1 Fail').first() is None
+
+    def test_add_expenses_check_currency_validator(self):
+        response = self.client.post(
+            url_for('create_expense', plan_id=1),
+            data = dict(type='Expense 2', expense='1000.4245'),
+            follow_redirects = True
+        )
+        
+        self.assert200(response)
+        self.assertIn(b'Please add a currency! (For example 2.99, 12.42)', response.data)
+        assert Expenses.query.filter_by(plan_id=1, type='Expense 2').first() is None
+
+    def test_update_expenses_check_currency_validator(self):
+        response = self.client.post(
+            url_for('update_expense', expense_id=1),
+            data = dict(type='Update Expense 1 Fail', expense='1200.456'),
+            follow_redirects = True
+        )
+
+        self.assert200(response)
+        self.assertIn(b'Please add a currency! (For example 2.99, 12.42)', response.data)
+
+        assert Expenses.query.filter_by(plan_id=1, type='Update Expense 1 Fail', expense='1200.456').first() is None
+        assert Expenses.query.filter_by(plan_id=1, type='Expense 1', expense=1200).first() is not None
