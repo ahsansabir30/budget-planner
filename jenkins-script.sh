@@ -12,8 +12,6 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 python3 -m pytest --cov=application --cov-report=html
 
-
-chr
 while getopts "c" opt; do
     case ${opt} in 
         c) echo -e "python3 create.py\n" >> deployment-script;;
