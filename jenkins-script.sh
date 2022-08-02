@@ -12,5 +12,14 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 python3 -m pytest --cov=application --cov-report=html
 
-python3 create.py 
-python3 app.py
+
+chr
+while getopts "c" opt; do
+    case ${opt} in 
+        c) echo -e "python3 create.py\n" >> deployment-script;;
+    esac
+done
+
+echo "python3 -m gunicorn -D --bind 0.0.0.0:5000 --workers 4 app:app" >> deployment-script
+
+ssh jenkins@prod-server < deployment-script
