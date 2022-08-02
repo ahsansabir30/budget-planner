@@ -1,5 +1,5 @@
 if [ -d devops-project ]; then
-    cd devops-project && pull origin main
+    cd devops-project && pull origin dev
 else
     git clone -b dev https://github.com/ahsansabir30/devops-project.git devops-project
     cd devops-project 
