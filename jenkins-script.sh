@@ -14,10 +14,10 @@ python3 -m pytest --cov=application --cov-report=html
 
 while getopts "c" opt; do
     case ${opt} in 
-        c) echo -e "python3 create.py\n" >> deployment-script;;
+        c) echo -e "python3 create.py\n" >> deployment-script.sh;;
     esac
 done
 
-echo "python3 -m gunicorn -D --bind 0.0.0.0:5000 --workers 4 app:app" >> deployment-script
+echo "python3 -m gunicorn -D --bind 0.0.0.0:5000 --workers 4 app:app" >> deployment-script.sh
 
-ssh jenkins@prod-server < deployment-script
+ssh jenkins@prod-server < deployment-script.sh
