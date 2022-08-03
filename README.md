@@ -56,6 +56,21 @@ However from the risk assessment, we can see that other test could have been imp
 The coverage report can be seen below:
 
 ### Application
-Once the build has finished, the production server is loaded and are greeted to create a plan.
- 
+Once the build has finished, the production server is loaded and we are greeted to the home page, where we will be able to see any plans we create later on. 
+![image](https://user-images.githubusercontent.com/92265482/182639387-b2992977-f45c-4fc2-a3b6-2bfbd69ee97c.png)
+To create a new plan, we click the green button 'Create Plan'. This will display 2 fields where we can enter our new plan. The budget field has an extra validator which checks that for the input being only a number, and that the number follows a standard of currency format (i.e. 2 decimal places).
+![image](https://user-images.githubusercontent.com/92265482/182639760-3ceb7243-896b-4d34-862d-dcd68468b0d6.png)
+Once the form is completed, we can click the green button 'submit', to submit the new plan.
+![image](https://user-images.githubusercontent.com/92265482/182640145-cb7177ed-1887-4e55-8c8f-3926a859f5d6.png)
+We should be then redirected back to the home page, where we will see the new plan we just created earlier.
+![image](https://user-images.githubusercontent.com/92265482/182640476-7548b2a3-3b84-4bf1-902a-d37d3d9be1d6.png)
+Within each plan, we can add more details (i.e. any expenses that could occur under each plan). To do this we click on the plan name we are interested in, and we will be redirected to an expense page (this is where all expenses under a plan are located). 
+![image](https://user-images.githubusercontent.com/92265482/182642241-6b26a58f-d159-4879-af1a-aad0e4a1a365.png)
+To create a new expense we follow the same format spoken above (i.e. clicking on the green button 'create expense'). Once a new expense is created, we will be redirected back to the expense page.
+![image](https://user-images.githubusercontent.com/92265482/182642857-93f5af11-7d31-49fa-b491-82634c8f38a5.png)
+Once a new expense is created, the application will total up all expenses within a plan and will indicate if you are above the budget assigned to the plan (using the colour green - within budget or red - over budget)
+![image](https://user-images.githubusercontent.com/92265482/182643478-3fcfa026-24d7-494d-bab6-590dfd030767.png)
+Within the application all plans and expenses can be updated and deleted.
+
+### Future
 
