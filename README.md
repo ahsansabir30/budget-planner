@@ -1,1 +1,61 @@
-# Devops-Project
+## Devops-Project
+This is the documentation for my QA DevOps Fundamental Project.
+
+### Objective
+The overall object of the project was to create an app, which had CRUD functionality and utilised atleast 2 tables which comprised at a minimum of a one to many relationship. The core structure of the application was built using a micro web framework Flask and used a MySQL database (to store data which is inputed by the end user).
+
+### Overview
+The project that I chose to create was a budget/ expense tracker, whereby the end user is able to create different plans and have different expenses within each plan. The application had to have the ability to create, read, update and delete all plans and expenses. Therefore we had to create a two tables (i.e plan and expenses) which reflected this one to many relationship, whereby one plan could have multiple different expenses.
+
+To start the project, I started by creating an ERD diagram which reflected this relationship.
+
+
+However due to the timeframe allocated I was unable to add user login functionality, which meant each end-user did not have the ability to create there own personal plans and expenses. Therefore the main future goal is to add in login functionality, which will give the end user the ability to create personalised plans (and thus no chance of cross-sharing).
+
+This relationship is reflected below, as an ERD diagram. The additional relationship created will be with the user and the plan, which reflects as a one to many relationship (between the user and his/her plans).
+
+### Risk Assessment
+Before building the projects, I had to outline some of the risk attached with building the software and to propose any measures that we could implement within the production of the app and thus, reduce/ mitigate any affects that could happen when the app is hosted. 
+
+Some of the measures were implemented within the development of the application (and are marked in the colour green on the assessment). The intial assessment can be seen below:
+
+### Technologies
+The technology stack used within this project is as follow:
+- Trello
+- Database GCP SQL server
+- Python
+- Flask
+- Pytest
+- Selenium
+- Gunicorn
+- Git
+- Jenkins 
+- VM: GCP Compute Engine 
+
+To track the project I used Trello - which is a kanban board, that enforces the use of agile methodology. Within my project, my task started at first to breakdown user stories, and assign story points to each user story task, taking into account MoSCoW prioritisation (i.e. task which are important for task functionality). Each user story task was put in the product backlog at first and then was moved into the spring backlog (dependent on its importanct, which is reflected by its story point).     
+Once its moved into the sprint backlog, each task will individually be moved into 'in progress' tab dependent on if I was working on that task or not (and then on to the review, where it had to pass an initial test).
+
+From below you can see my Trello Kanban Board
+
+Within the project specification we had to utilise a CI/CD pipeline, which focuses on improving software delivery throught the software development cycle (this process is automated). 
+
+To aid this CI pipeline, I used a version control system known as git and held the repository in github. Within this project serveral branches were used (Main, Develop, and Features) - which meant I was able to make changes to existing code without affect the main code. It also kept a commit history which showed the various commitments I made during the software cycle (and thus gave me different points of return in case of failure) and gave me an different enviroment to store the code.
+
+The main project was built using Flask and a python3 enviroment, which was further hosted in its own enviroment using a GCP compute engine instance (i.e. a virtual machine). Within the project we used 3 different compute engines, these were tasked with doing different task - the first one being already mentioned above. The other two instances were used to host a WSGI server (i.e. a production server, using Gunicorn) and the other, was used to host Jenkins. 
+The Jenkin was setup as a 'freestyle project', in order to create a enviroment to build our WSGI server, to automate any builds and to do any unit and intergration test after any changes on our github repo (specifically any push events on the develop branch). In order to create this automated pipeline, we had to use a webhook on the github repo, which would trigger after a 'git push' event occured on the develop branch.     
+
+This automated pipeline and overall architecture can be seen in the diagram below:    
+
+### Testing
+The testing phase of the app was built within the automated pipline spoken above (through the use of Jenkins). The test implemented within this pipeline was mainly focused around testing the CRUD functionality of the application. The two type of test impelemented within the application were integration testing (to test the forms within the application) and unit testing (to make sure the CRUD functionality worked consistently, i.e. testing each funtion within the routes file).
+
+When we push any changes to our code into Github - a Jenkin build begins, which will test if our code passes both our unit and integration test. If the test fails, the build halts and nothing is passed on to the production server (indicating the test has failed), else the new build is passed on to the production server (where the new build application is hoster on).  
+
+However from the risk assessment, we can see that other test could have been implemented into our application to handle any flaws within our application. For example, we have not tested how our application handles high load of demand, or what would happen if a natural disaster occured or any security test, to check if it meets up to code (and if our user data is safe).   
+
+The coverage report can be seen below:
+
+### Application
+Once the build has finished, the production server is loaded and are greeted to create a plan.
+ 
+
