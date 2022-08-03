@@ -5,19 +5,18 @@
     <form method="POST" action="" class="">
         <!-- CSRF TOKEN-->
         {{form.hidden_tag()}}
-
         <div class="mb-3">
             {% if header %}
             <h4>{{header}}</h4>
             {% else %}
             <h4>New Plan</h4>
-            {% endif %}
+            {% endif %}  
             <div class="form-group">
                 {{form.name.label(class="")}}
 
                 {% if form.name.errors %}
                     {{form.name(class="form-control")}}
-                    <div class="error">
+                    <div class="alert alert-danger mt-1 mb-1 p-1" style= "font-size: 0.9rem;">
                         {% for error in form.name.errors %}
                             <span>{{error}}</span>
                         {% endfor %}
@@ -30,8 +29,8 @@
                 {{form.budget.label(class="")}}
 
                 {% if form.budget.errors %}
-                    {{form.budget(class="")}}
-                    <div class="error">
+                    {{form.budget(class="form-control")}}
+                    <div class="alert alert-danger mt-1 mb-1 p-1" style= "font-size: 0.9rem;">
                         {% for error in form.budget.errors %}
                             <span>{{error}}</span>
                         {% endfor %}

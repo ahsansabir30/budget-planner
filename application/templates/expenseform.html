@@ -17,7 +17,7 @@
 
                 {% if form.type.errors %}
                     {{form.type(class="form-control")}}
-                    <div class="error">
+                    <div class="alert alert-danger mt-1 mb-1 p-1" style= "font-size: 0.9rem;">
                         {% for error in form.type.errors %}
                             <span>{{error}}</span>
                         {% endfor %}
@@ -30,8 +30,8 @@
                 {{form.expense.label(class="")}}
 
                 {% if form.expense.errors %}
-                    {{form.expense(class="")}}
-                    <div class="error">
+                    {{form.expense(class="form-control")}}
+                    <div class="alert alert-danger mt-1 mb-1 p-1" style= "font-size: 0.9rem;">
                         {% for error in form.expense.errors %}
                             <span>{{error}}</span>
                         {% endfor %}
