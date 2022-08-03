@@ -70,7 +70,7 @@ To create a new expense we follow the same format spoken above (i.e. clicking on
 ![image](https://user-images.githubusercontent.com/92265482/182642857-93f5af11-7d31-49fa-b491-82634c8f38a5.png)
 Once a new expense is created, the application will total up all expenses within a plan and will indicate if you are above the budget assigned to the plan (using the colour green - within budget or red - over budget)
 ![image](https://user-images.githubusercontent.com/92265482/182643478-3fcfa026-24d7-494d-bab6-590dfd030767.png)
-Within the application all plans and expenses can be updated and deleted.
+Within the application all plans and expenses can be updated and deleted, which is either done by clicking on the 'delete' button in red and or clicking the 'update' button in blue.
 
 ### Future
 
