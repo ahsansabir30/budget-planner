@@ -12,7 +12,7 @@
         <div class="card my-3">
           <div class="card-header d-flex justify-content-between">
               {{expense.type}}
-              <span class="">{{expense.created.strftime('%Y-%m-%d')}}</span>
+              <span class="">{{expense.created.strftime('%d-%m-%Y')}}</span>
           </div>
           <div class="card-body d-flex justify-content-between">
             <span class="card-text">{{"£%.2f"|format(expense.expense)}}</span>

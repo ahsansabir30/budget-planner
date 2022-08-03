@@ -9,7 +9,7 @@
     <div class="card my-3">
         <div class="card-header d-flex justify-content-between">
             <a href="{{url_for('plan_expense', plan_id=plan.id)}}" class="font-weight-bold link-info text-decoration-none">{{plan.name}}</a>
-            <p class="">{{plan.created.strftime('%Y-%m-%d')}}</p>
+            <p class="">{{plan.created.strftime('%d-%m-%Y')}}</p>
         </div>
         <div class="card-body d-flex justify-content-between">
             <span class="card-text">Total Budget:  {{"£%.2f"|format(plan.budget)}}</span>
