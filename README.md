@@ -1,10 +1,10 @@
-## Devops-Project
+# Devops-Project
 This is the documentation for my QA DevOps Fundamental Project.
 
-### Objective
+## Objective
 The overall object of the project was to create an app, which had CRUD functionality and utilised atleast 2 tables which comprised at a minimum of a one to many relationship. The core structure of the application was built using a micro web framework Flask and used a MySQL database (to store data which is inputed by the end user).
 
-### Overview
+## Overview
 The project that I chose to create was a budget/ expense tracker, whereby the end user is able to create different plans and have different expenses within each plan. The application had to have the ability to create, read, update and delete all plans and expenses. Therefore we had to create a two tables (i.e plan and expenses) which reflected this one to many relationship, whereby one plan could have multiple different expenses.
 
 To start the project, I started by creating an ERD diagram which reflected this relationship.
@@ -15,12 +15,13 @@ However due to the timeframe allocated I was unable to add user login functional
 This relationship is reflected below, as an ERD diagram. The additional relationship created will be with the user and the plan, which reflects as a one to many relationship (between the user and his/her plans).
 
 
-### Risk Assessment
+## Risk Assessment
 Before building the projects, I had to outline some of the risk attached with building the software and to propose any measures that we could implement within the production of the app and thus, reduce/ mitigate any affects that could happen when the app is hosted. 
 
 Some of the measures were implemented within the development of the application (and are marked in the colour green on the assessment). The intial assessment can be seen below:
+![image](https://user-images.githubusercontent.com/92265482/182797753-b99edb8b-e6c5-4943-8ab2-7cdf99b49361.png)
 
-### Technologies
+## Technologies
 The technology stack used within this project is as follow:
 - Trello
 - Database GCP SQL server
@@ -36,7 +37,8 @@ The technology stack used within this project is as follow:
 To track the project I used Trello - which is a kanban board, that enforces the use of agile methodology. Within my project, my task started at first to breakdown user stories, and assign story points to each user story task, taking into account MoSCoW prioritisation (i.e. task which are important for task functionality). Each user story task was put in the product backlog at first and then was moved into the spring backlog (dependent on its importanct, which is reflected by its story point).     
 Once its moved into the sprint backlog, each task will individually be moved into 'in progress' tab dependent on if I was working on that task or not (and then on to the review, where it had to pass an initial test).
 
-From below you can see my Trello Kanban Board
+From below you can see my Trello Kanban Board:
+![kanban board](https://user-images.githubusercontent.com/92265482/182798057-6bafcb4e-4bf7-40d5-ad11-7d5109111aae.JPG)
 
 Within the project specification we had to utilise a CI/CD pipeline, which focuses on improving software delivery throught the software development cycle (this process is automated). 
 
@@ -46,17 +48,20 @@ The main project was built using Flask and a python3 enviroment, which was furth
 The Jenkin was setup as a 'freestyle project', in order to create a enviroment to build our WSGI server, to automate any builds and to do any unit and intergration test after any changes on our github repo (specifically any push events on the develop branch). In order to create this automated pipeline, we had to use a webhook on the github repo, which would trigger after a 'git push' event occured on the develop branch.     
 
 This automated pipeline and overall architecture can be seen in the diagram below:    
+![image](https://user-images.githubusercontent.com/92265482/182812027-331a0e94-c934-4a6d-90c6-1c3ab409dc48.png)
 
-### Testing
+## Testing
 The testing phase of the app was built within the automated pipline spoken above (through the use of Jenkins). The test implemented within this pipeline was mainly focused around testing the CRUD functionality of the application. The two type of test impelemented within the application were integration testing (to test the forms within the application) and unit testing (to make sure the CRUD functionality worked consistently, i.e. testing each funtion within the routes file).
 
-When we push any changes to our code into Github - a Jenkin build begins, which will test if our code passes both our unit and integration test. If the test fails, the build halts and nothing is passed on to the production server (indicating the test has failed), else the new build is passed on to the production server (where the new build application is hoster on).  
+When we push any changes to our code into Github - a Jenkin build begins, which will test if our code passes both our unit and integration test. If the test fails, the build halts and nothing is passed on to the production server (indicating the test has failed), else the new build is passed on to the production server (where the new build application is hosted on). 
+![image](https://user-images.githubusercontent.com/92265482/182799770-4f09e212-c6a7-4657-b116-a1054dff2b56.png)
 
-However from the risk assessment, we can see that other test could have been implemented into our application to handle any flaws within our application. For example, we have not tested how our application handles high load of demand, or what would happen if a natural disaster occured or any security test, to check if it meets up to code (and if our user data is safe).   
+However from the risk assessment, we can see that other test could have been implemented into our application to handle any flaws within our application. For example, we have not tested how our application handles high load of demand, or what would happen if a natural disaster occured or any security test. This is something that would need to be implemented if the app was deployed in a real enviroment.   
 
 The coverage report can be seen below:
+![image](https://user-images.githubusercontent.com/92265482/182799257-65c80630-e62c-4c37-ae7b-7614d513dcf7.png)
 
-### Application
+## Application
 Once the build has finished, the production server is loaded and we are greeted to the home page, where we will be able to see any plans we create later on. 
 ![image](https://user-images.githubusercontent.com/92265482/182639387-b2992977-f45c-4fc2-a3b6-2bfbd69ee97c.png)
 To create a new plan, we click the green button 'Create Plan'. This will display 2 fields where we can enter our new plan. The budget field has an extra validator which checks that for the input being only a number, and that the number follows a standard of currency format (i.e. 2 decimal places).
@@ -73,5 +78,5 @@ Once a new expense is created, the application will total up all expenses within
 ![image](https://user-images.githubusercontent.com/92265482/182643478-3fcfa026-24d7-494d-bab6-590dfd030767.png)
 Within the application all plans and expenses can be updated and deleted, which is either done by clicking on the 'delete' button in red and or clicking the 'update' button in blue.
 
-### Future
+## Future
 
