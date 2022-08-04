@@ -48,7 +48,7 @@ The main project was built using Flask and a python3 enviroment, which was furth
 The Jenkin was setup as a 'freestyle project', in order to create a enviroment to build our WSGI server, to automate any builds and to do any unit and intergration test after any changes on our github repo (specifically any push events on the develop branch). In order to create this automated pipeline, we had to use a webhook on the github repo, which would trigger after a 'git push' event occured on the develop branch.     
 
 This automated pipeline and overall architecture can be seen in the diagram below:    
-![image](https://user-images.githubusercontent.com/92265482/182812027-331a0e94-c934-4a6d-90c6-1c3ab409dc48.png)
+![image](https://user-images.githubusercontent.com/92265482/182813045-6e7dccda-bfaa-4c5c-8375-685f10ab9ce6.png)
 
 ## Testing
 The testing phase of the app was built within the automated pipline spoken above (through the use of Jenkins). The test implemented within this pipeline was mainly focused around testing the CRUD functionality of the application. The two type of test impelemented within the application were integration testing (to test the forms within the application) and unit testing (to make sure the CRUD functionality worked consistently, i.e. testing each funtion within the routes file).
@@ -59,6 +59,7 @@ When we push any changes to our code into Github - a Jenkin build begins, which 
 However from the risk assessment, we can see that other test could have been implemented into our application to handle any flaws within our application. For example, we have not tested how our application handles high load of demand, or what would happen if a natural disaster occured or any security test. This is something that would need to be implemented if the app was deployed in a real enviroment.   
 
 The coverage report can be seen below:
+
 ![image](https://user-images.githubusercontent.com/92265482/182799257-65c80630-e62c-4c37-ae7b-7614d513dcf7.png)
 
 ## Application
