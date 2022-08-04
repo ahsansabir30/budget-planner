@@ -39,8 +39,9 @@ Once its moved into the sprint backlog, each task will individually be moved int
 
 From below you can see my Trello Kanban Board:
 ![kanban board](https://user-images.githubusercontent.com/92265482/182798057-6bafcb4e-4bf7-40d5-ad11-7d5109111aae.JPG)
+![kanban board2](https://user-images.githubusercontent.com/92265482/182813534-fdec63f2-78d0-4ece-8bcb-91b76e6eaeec.JPG)
 
-Within the project specification we had to utilise a CI/CD pipeline, which focuses on improving software delivery throught the software development cycle (this process is automated). 
+Within the project specification we had to utilise a CI/CD pipeline, which focuses on improving software delivery throught the software development cycle (this process had to be automated). 
 
 To aid this CI pipeline, I used a version control system known as git and held the repository in github. Within this project serveral branches were used (Main, Develop, and Features) - which meant I was able to make changes to existing code without affect the main code. It also kept a commit history which showed the various commitments I made during the software cycle (and thus gave me different points of return in case of failure) and gave me an different enviroment to store the code.
 
