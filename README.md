@@ -18,7 +18,7 @@ Before building the projects, I had to outline some of the risks attached with b
  
 Some of the measures that were implemented within the development of the application are marked in the colour green on the assessment sheet. The initial assessment can be seen below:
 ![image](https://user-images.githubusercontent.com/92265482/182797753-b99edb8b-e6c5-4943-8ab2-7cdf99b49361.png)
-Can access it [here](https://docs.google.com/spreadsheets/d/1u0-EC2CvKWc_gs7pGRcwGlpb8qgJ6GY1tGuGfgi-fjI/edit?usp=sharing).
+Access [here](https://docs.google.com/spreadsheets/d/1u0-EC2CvKWc_gs7pGRcwGlpb8qgJ6GY1tGuGfgi-fjI/edit?usp=sharing).
  
 ## Technologies
 The technology stack used within this project is as follow:
