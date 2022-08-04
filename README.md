@@ -37,7 +37,7 @@ Once it's moved into the sprint backlog, each task will individually be moved in
  
 From below you can see my Trello Kanban Board:
 ![kanban board](https://user-images.githubusercontent.com/92265482/182798057-6bafcb4e-4bf7-40d5-ad11-7d5109111aae.JPG)
-![kanban board2](https://user-images.githubusercontent.com/92265482/182813534-fdec63f2-78d0-4ece-8bcb-91b76e6eaeec.JPG)
+![image](https://user-images.githubusercontent.com/92265482/182819587-eccf6d07-536a-4516-be4e-e5f6779228fc.png)
  
 Within the project specification we had to utilise a CI/CD pipeline, which focuses on improving software delivery throughout the software development cycle (this process had to be automated).
  
