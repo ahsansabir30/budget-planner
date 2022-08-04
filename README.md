@@ -18,6 +18,7 @@ Before building the projects, I had to outline some of the risks attached with b
  
 Some of the measures were implemented within the development of the application (and are marked in the colour green on the assessment). The initial assessment can be seen below:
 ![image](https://user-images.githubusercontent.com/92265482/182797753-b99edb8b-e6c5-4943-8ab2-7cdf99b49361.png)
+Can access it [here](https://docs.google.com/spreadsheets/d/1u0-EC2CvKWc_gs7pGRcwGlpb8qgJ6GY1tGuGfgi-fjI/edit?usp=sharing).
  
 ## Technologies
 The technology stack used within this project is as follow:
@@ -35,7 +36,7 @@ The technology stack used within this project is as follow:
 To track the project I used Trello - which is a kanban board that enforces the use of agile methodology. Within my project, my task started at first to breakdown user stories, and assign story points to each user story task, taking into account MoSCoW prioritisation (i.e. tasks which are important for task functionality). Each user story task was put in the product backlog at first and then was moved into the sprint backlog (dependent on its importance, which is reflected by its story point).    
 Once it's moved into the sprint backlog, each task will individually be moved into the 'in progress' tab depending on if I was working on that task or not (and then on to the review, where it had to pass an initial test).
  
-From below you can see my Trello Kanban Board [link](https://trello.com/invite/b/exFK7eVS/23ed8f90515b186c8c2d4cb93860407b/flask-project):
+From below you can see my [Trello Kanban Board](https://trello.com/invite/b/exFK7eVS/23ed8f90515b186c8c2d4cb93860407b/flask-project):
 ![kanban board](https://user-images.githubusercontent.com/92265482/182798057-6bafcb4e-4bf7-40d5-ad11-7d5109111aae.JPG)
 ![image](https://user-images.githubusercontent.com/92265482/182819587-eccf6d07-536a-4516-be4e-e5f6779228fc.png)
  
