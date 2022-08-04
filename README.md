@@ -1,6 +1,4 @@
 # Devops-Project
-This is the documentation for my QA DevOps Fundamental Project.
-
 ## Objective
 The overall object of the project was to create an app, which had CRUD functionality and utilised atleast 2 tables which comprised at a minimum of a one to many relationship. The core structure of the application was built using a micro web framework Flask and used a MySQL database (to store data which is inputed by the end user).
 
