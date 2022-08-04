@@ -8,12 +8,12 @@ The overall object of the project was to create an app, which had CRUD functiona
 The project that I chose to create was a budget/ expense tracker, whereby the end user is able to create different plans and have different expenses within each plan. The application had to have the ability to create, read, update and delete all plans and expenses. Therefore we had to create a two tables (i.e plan and expenses) which reflected this one to many relationship, whereby one plan could have multiple different expenses.
 
 To start the project, I started by creating an ERD diagram which reflected this relationship.
-![erd diagram](https://user-images.githubusercontent.com/92265482/182646801-7e4dee1b-69ce-4081-bb3a-72f03dea4842.PNG)
+![image](https://user-images.githubusercontent.com/92265482/182816305-41502e1d-fb9e-4de6-bf43-12720edbf58c.png)
 
 However due to the timeframe allocated I was unable to add user login functionality, which meant each end-user did not have the ability to create there own personal plans and expenses. Therefore the main future goal is to add in login functionality, which will give the end user the ability to create personalised plans (and thus no chance of cross-sharing).
 
 This relationship is reflected below, as an ERD diagram. The additional relationship created will be with the user and the plan, which reflects as a one to many relationship (between the user and his/her plans).
-
+![image](https://user-images.githubusercontent.com/92265482/182816683-2f5ac4e3-b53f-4692-8388-51875d13bb3b.png)
 
 ## Risk Assessment
 Before building the projects, I had to outline some of the risk attached with building the software and to propose any measures that we could implement within the production of the app and thus, reduce/ mitigate any affects that could happen when the app is hosted. 
