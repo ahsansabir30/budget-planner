@@ -53,9 +53,9 @@ This automated pipeline and overall architecture can be seen in the diagram belo
 ![image](https://user-images.githubusercontent.com/92265482/182813045-6e7dccda-bfaa-4c5c-8375-685f10ab9ce6.png)
  
 ## Testing
-The testing phase of the app was built within the automated pipeline spoken above (through the use of Jenkins). The test implemented within this pipeline was mainly focused around testing the CRUD functionality of the application. The two types of test implemented within the application were integration testing (to test the forms within the application) and unit testing (to make sure the CRUD functionality worked consistently, i.e. testing each function within the routes file).
+The testing phase of the app was built within the automated pipeline spoken above (through the use of Jenkins). The test implemented within this pipeline was mainly focused around testing the CRUD functionality of the application. The two types of test implemented within the application were integration testing (to test the forms within the application) and unit testing (to make sure the CRUD functionality worked consistently).
  
-When I pushed any changes to the code into our Github repo - a Jenkin build begins, which will test if our code passes both our unit and integration test. If the test fails, the build halts and nothing is passed on to the production server (indicating the test has failed), else the new build is passed on to the production server (where the new build application is hosted on).
+When I pushed any new changes to the code to the Github repo - a Jenkin build would begin. This would test our code, using the test built by me. If the test fails, the build halts and nothing is passed on to the production server (indicating the test has failed), else the new build is passed on to the production server (where the new build application is hosted on).
 ![image](https://user-images.githubusercontent.com/92265482/182799770-4f09e212-c6a7-4657-b116-a1054dff2b56.png)
  
 However from the risk assessment, we can see that other test could have been implemented into our application to handle any flaws within our application. For example, we have not tested how our application handles high load of demand, or what would happen if a natural disaster occured or any security test. This is something that would need to be implemented if the app was deployed in a real environment.  
@@ -65,7 +65,7 @@ The coverage report can be seen below:
 ![image](https://user-images.githubusercontent.com/92265482/182799257-65c80630-e62c-4c37-ae7b-7614d513dcf7.png)
  
 ## Application
-Once the build has completed, the production server is updated and we are greeted to the home page, where we will be welcomed to the plans page (this page will show all plans that are created within the application).
+Once the Jenkin build has completed, the production server is updated and we are greeted to the home page, where we will be welcomed to the plans page (this page will show all plans that are created within the application).
 ![image](https://user-images.githubusercontent.com/92265482/182639387-b2992977-f45c-4fc2-a3b6-2bfbd69ee97c.png)
 To create a new plan, we click the green button 'Create Plan'. This will display 2 fields where we can enter our new plan. The budget field has an extra validator, this will checks if the input is a number, and that the number follows a currency format (i.e. 2 decimal places).
 ![image](https://user-images.githubusercontent.com/92265482/182639760-3ceb7243-896b-4d34-862d-dcd68468b0d6.png)
