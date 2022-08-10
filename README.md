@@ -1,4 +1,4 @@
-# Devops-Project
+# Devops-Project - Budget Planner
 ## Objective
 The overall object of the project was to create an application in Flask (mircoweb framework) which utilised a CI/CD pipeline. The application had to have CRUD functionality (CREATE, READ, UPDATE, DELETE), atleast two tables which compromised a one to many relationship and used a MySQL database. 
  
