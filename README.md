@@ -32,6 +32,7 @@ The technology stack used within this project is as follow:
 - Git
 - Jenkins
 - VM: GCP Compute Engine
+- Bootstrap
  
 To track the project I used Trello - this is a kanban board that enforces the use of agile methodology. To start this project, I had to breakdown each user story into different task (this can be seen in the kanban board below) and then I had to assign different story points, taking into account MoSCoW prioritisation (i.e. tasks which are important for task functionality, have a greater story point).
 Each user story task was put in the product backlog at first and then was moved into the sprint backlog (dependent on its importance, which is reflected by its story point).    
